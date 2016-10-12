@@ -45,7 +45,7 @@ public class KasunActivity extends AppCompatActivity{
             email = editTextEmail.getText().toString().trim();
             password = editTextPassword.getText().toString();
         }catch(Exception e){
-            Toast.makeText(v.getContext(), "Have some error check inputs...", Toast.LENGTH_SHORT);
+            Toast.makeText(v.getContext(), "Have some error check inputs...", Toast.LENGTH_SHORT).show();
             editTextName.requestFocus();
             e.printStackTrace();
             return;
@@ -101,7 +101,7 @@ public class KasunActivity extends AppCompatActivity{
 
         @Override
         protected void onPostExecute(String s){
-            Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT);
+            Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
         }
     }
 

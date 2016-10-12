@@ -76,11 +76,11 @@ public  void send_mail (View v){
 
         @Override
         protected void onPostExecute(String s) {
-            if (s.equals("success")){
+           /* if (s.equals("success")){
                 Toast.makeText(getApplicationContext(),"Passwerd reseted",Toast.LENGTH_LONG).show();
             }else
-                Toast.makeText(getApplicationContext(),"Passwerd reset  fail",Toast.LENGTH_LONG).show();
-            super.onPostExecute(s);
+                Toast.makeText(getApplicationContext(),"Passwerd reset  fail",Toast.LENGTH_LONG).show();*/
+            Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
         }
     }
 }
