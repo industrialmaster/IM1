@@ -37,9 +37,10 @@ public  void send_mail (View v){
     oldpw = etoldpw.getText().toString();
     newpw = etnewpw.getText().toString();
 
-    if (isValidEmail(email)){
-        etemail.setError("Invalid Email");
-    }else if (isValidPassword(newpw)){
+//    if (isValidEmail(email)){
+//        etemail.setError("Invalid Email");
+//    }else
+    if (isValidPassword(newpw)){
         etnewpw.setError("Lenth is short");
     }else {
 
@@ -48,17 +49,17 @@ public  void send_mail (View v){
 
 }
 
-    private boolean isValidEmail(String email) {
-        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-
-        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
+//    private boolean isValidEmail(String email) {
+//        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+//                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+//
+//        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+//        Matcher matcher = pattern.matcher(email);
+//        return matcher.matches();
+//    }
 
     private boolean isValidPassword(String userpass) {
-        if (userpass != null && userpass.length() > 3 && userpass !=oldpw) {
+        if (userpass != null && userpass.length() > 4) {
             return true;
         }
         return false;
@@ -70,7 +71,7 @@ public  void send_mail (View v){
         @Override
         protected String doInBackground(String... params) {
 
-            return NetConnection.call("change.php?email="+PWForget.email+"&oldpw="+PWForget.oldpw+"&newpw="+PWForget.newpw);
+            return NetConnection.call("changepw.php?email="+PWForget.email+"&password="+PWForget.oldpw+"&newpassword="+PWForget.newpw);
         }
 
         @Override

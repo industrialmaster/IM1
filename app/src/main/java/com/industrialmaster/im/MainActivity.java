@@ -1,5 +1,6 @@
 package com.industrialmaster.im;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -63,8 +64,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void question(View v){
-        RegTask reg = new RegTask();
-        reg.execute();
+        Intent intent = new Intent(MainActivity.this,KasunActivity.class);
+         startActivity(intent);
+//        RegTask reg = new RegTask();
+//        reg.execute();
     }
 
     class RegTask extends AsyncTask<String , Integer, String>{

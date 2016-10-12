@@ -52,6 +52,7 @@ public class KasunActivity extends AppCompatActivity{
         }
         if(isStringEmpty(name) && isStringEmpty(email) && isStringEmpty(password)){
             new RegisterTask().execute();
+            cancel(null);
         }
 
     }
