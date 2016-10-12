@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".JayanActivity"></activity>
+
+        <activity android:name=".Sadeera"></activity>
     </application>
 
 </manifest>
