@@ -1,5 +1,6 @@
 package com.industrialmaster.im;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.industrialmaster.im.connection.NetConnection;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,6 +63,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void question(View v){
-        Toast.makeText(this, "Test", Toast.LENGTH_LONG).show();
+        RegTask reg = new RegTask();
+        reg.execute();
+    }
+
+    class RegTask extends AsyncTask<String , Integer, String>{
+
+        @Override
+        protected String doInBackground(String... params) {
+            return NetConnection.call("register.php?name=Ruwan&email=ruwan@im.com&password=123");
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            Toast.makeText(MainActivity.this, "Test :"+s, Toast.LENGTH_LONG).show();
+        }
     }
 }
